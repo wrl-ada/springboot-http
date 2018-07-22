@@ -10,7 +10,7 @@ import java.io.IOException;
 @RestController
 @RequestMapping( "/client" )
 public class JenkinsControllerWithClient {
-    private String jobName="test002";
+    private String jobName="client001";
     @Autowired
     private JenkinsServiceWithClient service;
 
