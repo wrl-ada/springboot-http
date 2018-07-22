@@ -8,6 +8,7 @@
 3.     new AuthScope(AuthScope.ANY_HOST,AuthScope.ANY_PORT),
 4.     new UsernamePasswordCredentials(username,apiToken)
 5. ); 
+6. client.getParams ().setAuthenticationPreemptive ( true );
 ######  RestTemplate:
 1. RestTemplateBuilder builder = new RestTemplateBuilder (  );
 2. //带身份认证的RestTemplate
