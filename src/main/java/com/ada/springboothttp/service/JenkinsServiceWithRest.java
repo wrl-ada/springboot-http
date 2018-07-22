@@ -84,7 +84,7 @@ public class JenkinsServiceWithRest {
         HttpEntity<String> formEntity=new HttpEntity ( getXml (), headers );
         result=template.postForEntity ( jenkinsAPI + "createItem?name=" + jobName,
                 formEntity, JSONObject.class );
-        LOGGER.info ( "Create job result: {}", result.getBody ().toString () );
+        LOGGER.info ( "Create job result: {}", result.getBody () );
         System.out.print ( result.getStatusCode () );
         return result.getStatusCodeValue ();
     }
@@ -108,7 +108,7 @@ public class JenkinsServiceWithRest {
                     "", JSONObject.class );
         }
 
-        LOGGER.info ( "Build job result: {}", result.getBody ().toString () );
+        LOGGER.info ( "Build job result: {}", result.getBody ());
         return result.getStatusCodeValue ();
     }
 
@@ -143,7 +143,7 @@ public class JenkinsServiceWithRest {
      * @param jobName
      */
     public void deleteJob(String jobName) {
-        String result=template.getForObject ( jenkinsAPI + "job/" + jobName + "/api/json", String.class );
+        String result=template.postForObject ( jenkinsAPI + "job/" + jobName + "/doDelete", "",String.class );
         LOGGER.info ( result );
     }
 }

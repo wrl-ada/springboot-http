@@ -51,6 +51,7 @@ public class SpringbootHttpApplication {
                 new AuthScope ( AuthScope.ANY_HOST, AuthScope.ANY_PORT ),
                 new UsernamePasswordCredentials ( user, pass )
         );
+        client.getParams ().setAuthenticationPreemptive ( true );
         return client;
     }
 }
